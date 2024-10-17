@@ -52,8 +52,8 @@ export default function Home() {
             src="/assets/img/hero-bg.jpg"
             alt=" Bg image"
             data-aos="fade-in"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             priority={true}
           />
 
