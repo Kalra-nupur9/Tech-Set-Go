@@ -248,6 +248,21 @@ h6 {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
   padding: 0px 20px  ;
 }
+.btn_logIn{
+  background-color:var(--accent-color) ;
+  border: 1px solid #000000;
+  color: #e0caea;
+
+}
+.btn_logIn:hover{
+  background-color:var(--accent-color) ;
+}
+.icon_login{
+  color:var(--accent-color) ;
+}
+.glass_bg{
+  backdrop-filter: blur(10px);
+}
 
 /* Index Page Header
 ------------------------------*/
@@ -858,7 +873,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 80%);
+  background: color-mix(in srgb, var(--background-color), transparent 70%);
   position: absolute;
   inset: 0;
   z-index: 2;

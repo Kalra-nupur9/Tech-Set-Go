@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -60,8 +61,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased index-page`}
       >
         <header
-          id="header"
-          className="header d-flex align-items-center fixed-top"
+          id="header" 
+          className="header d-flex align-items-center fixed-top z-10"
         >
           <div className="container-fluid position-relative d-flex align-items-center justify-content-between">
             <a href="#hero" className="logo d-flex align-items-center ">
@@ -142,6 +143,7 @@ export default function RootLayout({ children }) {
         </header>
 
         {children}
+        
 
         <footer
           id="footer"
