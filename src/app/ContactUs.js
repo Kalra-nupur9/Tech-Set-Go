@@ -15,9 +15,20 @@ const ContactUs = () => {
     // Simulate form submission - you can replace this with your API call
     try {
       const formData = new FormData(event.target);
+
+      const formValues = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        subject: formData.get("subject"),
+        message: formData.get("message"),
+      };
+      localStorage.setItem("contactFormData", JSON.stringify(formValues));
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
       });
 
       if (response.ok) {
@@ -61,8 +72,10 @@ const ContactUs = () => {
 
         <div className="container z-3" data-aos="fade-up" data-aos-delay="100">
           <div className="row gy-4">
+
+          
             <div className="col-lg-6">
-              <div className="row gy-4">
+              <div className="row gy-4 flex-nowrap">
                 <div className="col-md-6">
                   <div
                     className="info-item"
@@ -71,8 +84,14 @@ const ContactUs = () => {
                   >
                     <i className="bi bi-envelope"></i>
                     <h3>Email Us</h3>
-                    <p>contact.techsetgo@gmail.com</p>
+                    <a href="mailto:contact.techsetgo@gmail.com">
+                    <span className="" target="_blank">
+                      {" "}
+                      contact.techsetgo@gmail.com
+                    </span>
+                  </a>
                   </div>
+                  
                 </div>
                 {/* End Info Item */}
 
@@ -84,16 +103,49 @@ const ContactUs = () => {
                   >
                     <i className="bi bi-telephone"></i>
                     <h3>Call Us</h3>
-                    <p>+91 81306 01013</p>
+                    <a href="tel:+918130601013" target="_blank">
+                    <span className=""> {" "}+91 81306 01013</span>
+                  </a>
                   </div>
                 </div>
+                <div className="col-md-6">
+                  <div
+                    className="info-item"
+                    data-aos="fade"
+                    data-aos-delay="300"
+                  >
+                    <i className="bi bi-instagram"></i>
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com/tech_set_go" target="_blank" aria-label="Instagram">
+                    Click here
+                  </a>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div
+                    className="info-item"
+                    data-aos="fade"
+                    data-aos-delay="300"
+                  >
+                    <i className="bi bi-linkedin"></i>
+                    <h3>Linkedin</h3>
+                    <a
+                    href="https://www.linkedin.com/in/tech-set-go-890381329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                  >
+                    Click Here
+                  </a>
+                  </div>
+                </div>
+                
               </div>
             </div>
 
-            <div className="col-lg-6">
+            {/* <div className="col-lg-6 ">
               <form
                 onSubmit={handleSubmit}
-                className="php-email-form"
+                className="php-email-form "
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
@@ -139,7 +191,7 @@ const ContactUs = () => {
                   </div>
 
                   <div className="col-12 text-center">
-                    {loading && <div className="loading">Loading</div>}
+                    {loading && <div className="loading">Loading....</div>}
                     {errorMessage && (
                       <div className="error-message">{errorMessage}</div>
                     )}
@@ -155,8 +207,8 @@ const ContactUs = () => {
                   </div>
                 </div>
               </form>
-            </div>
-            {/* End Contact Form */}
+            </div> */}
+           
           </div>
         </div>
       </section>
