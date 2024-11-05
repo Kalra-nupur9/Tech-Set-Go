@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { EmailId, contactNumber } from '../constent';
 
 const Footer = () => {
   return (
@@ -72,8 +73,12 @@ const Footer = () => {
                     <a href="#"> Application Development</a>
                   </li>
                   <li>
-                    <a href="#"> Bug Fixing & Feature Enhancements</a>
+                    <a href="#"> Bug Fixing</a>
                   </li>
+                  <li>
+                    <a href="#"> Feature Enhancements</a>
+                  </li>
+                  
                   <li>
                     <a href="#">Career Mentorship</a>
                   </li>
@@ -86,7 +91,7 @@ const Footer = () => {
                 <p className="mt-4">
                   <strong>Phone:</strong>
                   <a href="tel:+918130601013" target="_blank">
-                    <span className="Contact_details"> {" "}+91 81306 01013</span>
+                    <span className="Contact_details"> {" "}{contactNumber}</span>
                   </a>
                 </p>
                 <p>
@@ -94,7 +99,7 @@ const Footer = () => {
                   <a href="mailto:contact.techsetgo@gmail.com">
                     <span className="Contact_details" target="_blank">
                       {" "}
-                      contact.techsetgo@gmail.com
+                      {EmailId}
                     </span>
                   </a>
                 </p>

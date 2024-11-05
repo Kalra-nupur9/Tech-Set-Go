@@ -5,19 +5,40 @@ import Image from "next/image";
 const HeroSection = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (email) {
-      
-      localStorage.setItem("subscriberEmail", email);
-      setSubmitted(true);
+      try {
+        const response = await fetch('/api/subscribe', { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+  
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+         
+          const errorText = await response.text(); 
+          console.error('Error response:', errorText); 
+          throw new Error('Failed to subscribe');
+        }
+      } catch (error) {
+        console.error('Error submitting email:', error);
+       
+        setErrorMessage('There was an issue submitting your email. Please try again later.');
+      }
     }
   };
+  
+  
+  
 
   return (
     <>
@@ -70,10 +91,12 @@ const HeroSection = () => {
                   </div>
                 </form>
               ) : (
-                <div className="sent-message text-xl py-5 uppercase text-center">
+                <div className="sent-message font-bold py-5 uppercase text-center">
                   Your subscription request has been sent. We will contact you shortly<br />  Thank you!
                 </div>
+                
               )}
+              {errorMessage && <div className="error-message text-red-500">{errorMessage}</div>}
             </div>
           </div>
         </div>

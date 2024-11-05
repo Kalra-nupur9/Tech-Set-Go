@@ -1,9 +1,10 @@
-import React from 'react'
+import { useState } from "react";
 
-const Services = () => {
+const AboutUs = () => {
+ 
   return (
     <>
-         {/* Services Section */}
+         {/* About us section */}
          <section id="about" className="services section">
           {/* Section Title */}
           <div className="container section-title" data-aos="fade-up">
@@ -46,7 +47,7 @@ const Services = () => {
               <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                 <div className="service-item d-flex">
                   <div className="icon flex-shrink-0">
-                    <i className="bi bi-card-checklist"></i>
+                    <i className="bi bi-code"></i>
                   </div>
                   <div>
                     <h4 className="title">
@@ -119,7 +120,7 @@ const Services = () => {
           </div>
         </section>
     </>
-  )
-}
+  );
+};
 
-export default Services
+export default AboutUs;
