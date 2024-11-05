@@ -113,7 +113,7 @@ const Footer = () => {
               <strong className="sitename">Append</strong>
               <span>All Rights Reserved</span>
             </p>
-            <div className="credits">Designed by Nupur Kalra</div>
+            {/* <div className="credits">Designed by Nupur Kalra</div> */}
           </div>
         </footer>
     </>

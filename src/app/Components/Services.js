@@ -102,7 +102,7 @@ const Services = () => {
               data-aos-delay="600"
             >
               <div className="icon-box">
-              <i class="bi bi-list-stars"></i>
+              <i className="bi bi-list-stars"></i>
                 <h3>Feature Enhancements</h3>
                 <p className="justify">
                   Streamlined feature updates and enhancements for your software
